@@ -11,7 +11,7 @@ toggleButton.addEventListener('click', () => {
   toggleButton.textContent = expanded ? 'Show Less' : 'Show More';
 });
 
-// Simple Contact Form Validation + Message
+// Contact Form Handler
 const form = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
 
@@ -23,10 +23,10 @@ form.addEventListener('submit', function (e) {
   const message = document.getElementById('message').value.trim();
 
   if (!name || !email || !message) {
-    status.textContent = 'Please fill in all fields.';
+    status.textContent = '❌ Please fill out all fields.';
     status.style.color = 'red';
   } else {
-    status.textContent = 'Thanks for your message!';
+    status.textContent = '✅ Message sent successfully!';
     status.style.color = 'green';
     form.reset();
   }
