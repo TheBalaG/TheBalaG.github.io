@@ -25,12 +25,12 @@
 
   <section id="about" class="container">
     <h2>👋 About Me</h2>
-    <p>Hello! I'm <strong>Balaji</strong>, a passionate developer focused on building clean, functional websites and tools using Laravel, PHP, and Python. I'm also exploring Cloud & DevOps technologies.</p>
+    <p>Hello! I'm <strong>Balaji</strong>, a developer focused on building clean, functional tools and web apps using Laravel, PHP, Python, and cloud platforms.</p>
   </section>
 
   <section id="projects" class="container">
-    <h2>💼 Projects</h2>
-    <div class="project-list">
+    <h2>💼 Projects <button id="toggleProjects">Show More</button></h2>
+    <div class="project-list" id="projectList">
       <div class="project-card">
         <h3>Offline Billing System</h3>
         <p>Laravel app with CoreUI UI, runs fully offline with customer & invoice modules.</p>
@@ -39,21 +39,32 @@
         <h3>Math Olympiad Quiz (AI)</h3>
         <p>Flask + Gemini AI app that generates questions based on weak topics.</p>
       </div>
-      <div class="project-card">
+      <div class="project-card extra">
         <h3>Airbnb Market Research Tool</h3>
-        <p>PHP-based scraper that collects and analyzes listing data like reviews & calendar availability.</p>
+        <p>PHP scraper that analyzes property reviews, bookings & availability.</p>
+      </div>
+      <div class="project-card extra">
+        <h3>College Exam Portal</h3>
+        <p>PHP-based internal assessment portal with admin and student roles.</p>
       </div>
     </div>
   </section>
 
   <section id="contact" class="container">
-    <h2>📬 Contact</h2>
-    <p><strong>Email:</strong> thebalag@example.com</p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/TheBalaG" target="_blank">github.com/TheBalaG</a></p>
+    <h2>📬 Contact Me</h2>
+    <form id="contactForm">
+      <label>Name:<br><input type="text" id="name" required></label><br><br>
+      <label>Email:<br><input type="email" id="email" required></label><br><br>
+      <label>Message:<br><textarea id="message" required></textarea></label><br><br>
+      <button type="submit">Send</button>
+    </form>
+    <p id="formStatus"></p>
   </section>
 
   <footer>
     <p>&copy; 2025 Balaji G · Made with 💻</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
