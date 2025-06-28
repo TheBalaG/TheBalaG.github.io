@@ -1,0 +1,32 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for tech look -->
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b80afd"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="150" height="150" rx="20" fill="#111111"/>
+
+  <!-- Outer Tech Border -->
+  <rect x="5" y="5" width="140" height="140" rx="15"
+        stroke="url(#neonGradient)" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+
+  <!-- Central Text -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Orbitron, sans-serif" font-size="48"
+        fill="url(#neonGradient)" filter="url(#glow)">
+    BG
+  </text>
+</svg>
