@@ -114,5 +114,72 @@ document.addEventListener("DOMContentLoaded", async () => {
     breakLines: false,
     loop: true,
     waitUntilVisible: true,
-  }).go();
+  }).go();  
 });
+
+ document.addEventListener('DOMContentLoaded', function () {
+   tsParticles.load("tsparticles", {
+    fullScreen: { enable: false }, // already inside a specific container
+    background: { color: "transparent" },
+    particles: {
+      number: { value: 25, density: { enable: true, area: 800 } },
+      shape: {
+        type: "image",
+        image: [
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/1051/1051277.png", // HTML5
+            width: 32,
+            height: 32
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/919/919826.png", // Laravel
+            width: 32,
+            height: 32
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/5968/5968292.png", // PHP
+            width: 32,
+            height: 32
+          },
+          {
+            src: "https://cdn-icons-png.flaticon.com/512/919/919825.png", // JS
+            width: 32,
+            height: 32
+          }
+        ]
+      },
+      size: {
+        value: 20,
+        random: { enable: true, minimumValue: 10 }
+      },
+      opacity: {
+        value: 0.9
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        outModes: "out"
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "grab" },
+        onClick: { enable: true, mode: "push" },
+        resize: true
+      },
+      modes: {
+        grab: {
+          distance: 150,
+          links: { opacity: 0.5 }
+        },
+        push: { quantity: 4 }
+      }
+    },
+    detectRetina: true
+  });
+
+
+  
+
+  });

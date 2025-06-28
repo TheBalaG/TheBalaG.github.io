@@ -8,45 +8,98 @@
 
 html, body {
   overflow-x: hidden;
-}
-
-body {
   font-family: 'Poppins', sans-serif;
-  background: #f0f4f8;
   color: #1f2937;
+  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/dots.png') repeat;
+  position: relative;
+  z-index: 0;
 }
 
-/* === Background Animations === */
-.gradient-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Animated Gradient Layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #0f172a, #2563eb, #38bdf8);
-  background-size: 600% 600%;
-  z-index: -2;
-  animation: gradientMove 15s ease infinite;
-  opacity: 0.85;
-}
-
-@keyframes gradientMove {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.blob {
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  top: -200px;
-  right: -150px;
-  opacity: 0.3;
+  background: linear-gradient(270deg, #8c00ff, #e2e8f0, #f0f4f8, #8c00ff);
+  background-size: 800% 800%;
   z-index: -1;
-  transform: rotate(-15deg);
+  animation: animatedGradient 20s ease infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+@keyframes animatedGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* === Layout Containers === */
+/* === Hero Section === */
+.hero {
+  position: relative;
+  height: 80vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 20px 80px;
+  background: #0f172a;
+  color: white;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Hero Video Background (if used) */
+.bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* tsParticles container */
+#tsparticles {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Optional dimming overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  z-index: -1;
+}
+
+/* Hero Text Styles */
+.hero .highlight {
+  color: #38bdf8;
+}
+
+.hero .btn {
+  margin-top: 25px;
+  display: inline-block;
+  padding: 12px 24px;
+  background: #38bdf8;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #0ea5e9;
+}
+
 
 
 .container, .btn-group, .skills-grid {
@@ -54,10 +107,6 @@ body {
   flex-wrap: wrap;
 }
 
-.blob {
-  max-width: 100vw;
-  right: 0;
-}
 
 .container {
   width: 90%;
@@ -124,34 +173,6 @@ body {
   color: #2563eb;
 }
 
-/* === Hero Section === */
-.hero {
-  text-align: center;
-  padding: 120px 20px 80px;
-  position: relative;
-  z-index: 1;
-  color: white;
-}
-
-.hero .highlight {
-  color: #38bdf8;
-}
-
-.hero .btn {
-  margin-top: 25px;
-  display: inline-block;
-  padding: 12px 24px;
-  background: #38bdf8;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-.hero .btn:hover {
-  background: #0ea5e9;
-}
 
 /* === Cards & Grid === */
 .grid {
@@ -420,6 +441,16 @@ footer {
 .contact-card a:hover {
   color: #2563eb;
 }
+
+
+
+.gradient-bg,
+.blob {
+  z-index: -3;
+}
+
+
+
 
 
 
