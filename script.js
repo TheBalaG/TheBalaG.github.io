@@ -32,6 +32,6 @@ function populateSection(containerId, items) {
 }
 
 // Particles.js background
-particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json', function() {
+particlesJS.load('particles-js', 'particles.json', function() {
   console.log('Particles.js loaded');
 });

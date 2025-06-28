@@ -1,0 +1,40 @@
+{
+  "projects": [
+    {
+      "title": "Offline Billing System",
+      "description": "Laravel + CoreUI dashboard, 100% offline capable with invoice and customer management."
+    },
+    {
+      "title": "Math Quiz AI",
+      "description": "Python Flask + Gemini AI app that creates quizzes based on weak topics."
+    },
+    {
+      "title": "Airbnb Research Tool",
+      "description": "PHP tool that checks listing availability, booking trends, and review quality."
+    },
+    {
+      "title": "Exam Management",
+      "description": "PHP tool for internal assessment & report tracking with admin and student roles."
+    }
+  ],
+  "education": [
+    {
+      "title": "MCA - Alagappa University",
+      "description": "Graduated with 80%, secured 6th rank in the university."
+    },
+    {
+      "title": "BSc - Computer Science",
+      "description": "Completed undergraduate studies in computer science."
+    }
+  ],
+  "experience": [
+    {
+      "title": "Software Developer Intern",
+      "description": "Worked on Laravel, PHP, AWS and Python; created full-stack tools and internal testing utilities."
+    },
+    {
+      "title": "Freelance Projects",
+      "description": "Built custom billing software, data collection bots, and cloud-based tools for clients."
+    }
+  ]
+}
