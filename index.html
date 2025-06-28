@@ -4,14 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balaji G | Portfolio</title>
+
+
+  <!-- Basic SEO -->
+<meta name="title" content="Balaji G | Web Developer & Cloud Enthusiast">
+<meta name="description" content="Balaji G's personal portfolio — Laravel developer, freelancer, and cloud engineer. Projects, experience, and skills all in one place.">
+<meta name="keywords" content="Balaji G, Laravel Developer, PHP Developer, Web Developer, Cloud Engineer, Freelance Laravel Developer, Freelance Web Developer, Madurai Freelancer, Chennai Freelancer, Coimbatore Freelancer, Tamil Nadu Freelancer, Digital Marketing Freelancer, Remote Laravel Developer, Freelance PHP Projects, Website Developer Madurai, Freelance Developer India, Outsource Laravel Developer India">
+<meta name="author" content="Balaji G">
+
+<!-- Open Graph (For Facebook, LinkedIn) -->
+<meta property="og:title" content="Balaji G | Developer Portfolio">
+<meta property="og:description" content="Laravel, Cloud & Freelance Projects – View my portfolio and experience.">
+<meta property="og:image" content="https://thebalag.github.io/assets/og-image.jpg">
+<meta property="og:url" content="https://thebalag.github.io/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Balaji G | Developer Portfolio">
+<meta name="twitter:description" content="Laravel, Cloud, Freelance Projects and more. Check out my work.">
+<meta name="twitter:image" content="https://thebalag.github.io/assets/og-image.jpg">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Balaji G",
+    "alternateName": "Balaji G Freelancer",
+    "jobTitle": "Laravel Developer, Web Developer, Cloud Engineer",
+    "url": "https://thebalag.github.io/",
+    "image": "https://your-portfolio-url.com/assets/img/profile.jpg",
+    "description": "Freelance Laravel Developer and Cloud Engineer based in Madurai. I specialize in web development, PHP, and digital marketing services across Tamil Nadu and remotely.",
+    "address": {
+      "@type": "625004",
+      "addressLocality": "Madurai",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    },
+    "email": "mailto:thebalaji101@gmail.com",
+    "telephone": "+91-8680013877",
+    "sameAs": [
+      "https://github.com/thebalag",
+      "https://linkedin.com/in/",
+    ],
+    "knowsAbout": ["Laravel", "PHP", "Web Development", "Cloud Computing", "AWS", "GCP", "Digital Marketing"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    }
+  }
+  </script>
+
+  <!-- Fonts and Styles -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-  <!-- Navigation -->
+
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
       <div class="nav-brand">Balaji G</div>
@@ -19,22 +73,29 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+
       </ul>
     </div>
   </nav>
 
-  <!-- Background -->
-  <div id="particles-js"></div>
-
   <!-- Hero Section -->
   <header class="hero">
+    <div class="gradient-bg"></div>
+    <svg class="blob" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="translate(300,300)">
+        <path d="M120,-151.6C158.6,-110.8,199.2,-79.8,213.4,-40.2C227.6,-0.5,215.4,47.9,190.7,91.7C166.1,135.6,129.1,174.8,84.1,190.8C39.2,206.7,-13.7,199.4,-62.2,180.4C-110.6,161.3,-154.5,130.5,-180.7,89.2C-206.9,47.9,-215.5,-4.1,-198.7,-46.2C-181.9,-88.2,-139.6,-120.3,-98.3,-159.3C-56.9,-198.4,-28.4,-244.4,9.3,-254.4C47,-264.4,93.9,-238.4,120,-151.6Z" fill="#2563eb" />
+      </g>
+    </svg>
     <div class="container">
       <h1>Hi, I'm <span class="highlight">Balaji G</span></h1>
       <h2><span id="typing"></span></h2>
-      <a href="#projects" class="btn">View Projects</a>
+      <a href="#projects" class="btn">Know More</a>
     </div>
   </header>
 
+  <!-- Projects Section -->
   <section id="projects" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Projects</h2>
@@ -42,6 +103,7 @@
     </div>
   </section>
 
+  <!-- Education Section -->
   <section id="education" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Education</h2>
@@ -49,13 +111,52 @@
     </div>
   </section>
 
+  <!-- Experience Section -->
   <section id="experience" class="section" data-aos="fade-up">
     <div class="container">
       <h2>Experience</h2>
-      <div class="grid" id="experience-container"></div>
+      <div id="experience-container" class="timeline"></div>
     </div>
   </section>
 
+  <!-- Skills Section -->
+  <section id="skills" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-grid" id="skills-container"></div>
+    </div>
+  </section>
+
+
+
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <p class="contact-intro">Interested in working together or have a question? Let's connect!</p>
+
+    <div class="contact-cards">
+      <div class="contact-card">
+        <h3>Email</h3>
+        <a href="mailto:thebalaji101@gmail.com">thebalaji101@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/balaji-g-707192191/" target="_blank">linkedin.com/in/balaji-g</a>
+      </div>
+      <div class="contact-card">
+        <h3>GitHub</h3>
+        <a href="https://github.com/TheBalaG" target="_blank">github.com/TheBalaG</a>
+      </div>
+      <div class="contact-card">
+        <h3>WhatsApp</h3>
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" disabled>Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 Balaji G</p>
@@ -66,8 +167,12 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
   <script src="script.js"></script>
+
+
+    
 </body>
 </html>

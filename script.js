@@ -1,37 +1,118 @@
-// script.js
+document.addEventListener("DOMContentLoaded", async () => {
+  const res = await fetch("data.json");
+  const data = await res.json();
 
-// Typing effect
-new TypeIt("#typing", {
-  strings: ["Web Developer", "Cloud Enthusiast", "Freelancer"],
-  speed: 100,
-  breakLines: false,
-  loop: true
-}).go();
+  /* === Render Small Info Cards (Education) === */
+  const renderCards = (containerId, items) => {
+    const container = document.getElementById(containerId);
+    items.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${item.title || item.name}</h3>
+        <p>${item.description || ""}</p>
+      `;
+      container.appendChild(card);
+    });
+  };
 
-// Load JSON data
-fetch('data.json')
-  .then(res => res.json())
-  .then(data => {
-    populateSection('projects-container', data.projects);
-    populateSection('education-container', data.education);
-    populateSection('experience-container', data.experience);
-  })
-  .catch(err => console.error('Error loading data:', err));
+  /* === Render Grouped Projects by Category === */
+  const renderGroupedProjects = (containerId, projects) => {
+    const container = document.getElementById(containerId);
+    const grouped = {};
 
-function populateSection(containerId, items) {
-  const container = document.getElementById(containerId);
-  items.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <h3>${item.title}</h3>
-      <p>${item.description}</p>
-    `;
-    container.appendChild(card);
-  });
-}
+    // Group projects
+    projects.forEach((project) => {
+      if (!grouped[project.category]) grouped[project.category] = [];
+      grouped[project.category].push(project);
+    });
 
-// Particles.js background
-particlesJS.load('particles-js', 'particles.json', function() {
-  console.log('Particles.js loaded');
+    // Render groups
+    Object.entries(grouped).forEach(([category, projectList]) => {
+      const sectionTitle = document.createElement("h3");
+      sectionTitle.textContent = category;
+      sectionTitle.className = "section-subtitle";
+      container.appendChild(sectionTitle);
+
+      projectList.forEach((project) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "full-width";
+
+        const card = document.createElement("div");
+        card.className = "card project-card";
+
+        const techList = project.tech?.map(
+          (t) => `<span class="tech-tag">${t}</span>`
+        ).join(" ") || "";
+
+        card.innerHTML = `
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+          <hr class="card-divider" />
+          <p><strong>Client:</strong> ${project.client}</p>
+          <p><strong>Tech Used:</strong> ${techList}</p>
+          <div class="btn-group">
+            ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn">Live Demo</a>` : ""}
+            ${project.code ? `<a href="${project.code}" target="_blank" class="btn outline">View Code</a>` : ""}
+          </div>
+        `;
+
+        wrapper.appendChild(card);
+        container.appendChild(wrapper);
+      });
+    });
+  };
+
+  /* === Render Experience Timeline === */
+  const renderExperience = (containerId, experiences) => {
+    const container = document.getElementById(containerId);
+
+    experiences.forEach((exp) => {
+      const block = document.createElement("div");
+      block.className = "timeline-item";
+
+      const skills = exp.skills?.map(
+        (skill) => `<span class="tech-tag">${skill}</span>`
+      ).join(" ") || "";
+
+      block.innerHTML = `
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h3>${exp.title} <span class="company">@ ${exp.company}</span></h3>
+          <p class="timeline-date">${exp.timeline}</p>
+          <p>${exp.description}</p>
+          <div class="skills-used">${skills}</div>
+        </div>
+      `;
+      container.appendChild(block);
+    });
+  };
+
+  /* === Render Skill Icons === */
+  const renderSkills = (skills) => {
+    const container = document.getElementById("skills-container");
+    skills.forEach((skill) => {
+      const icon = document.createElement("div");
+      icon.className = "skill-icon";
+      icon.innerHTML = `
+        <img src="${skill.icon}" alt="${skill.name}" title="${skill.name}" />
+      `;
+      container.appendChild(icon);
+    });
+  };
+
+  // Run all renderers
+  renderGroupedProjects("projects-container", data.projects);
+  renderCards("education-container", data.education);
+  renderExperience("experience-container", data.experience);
+  renderSkills(data.skills);
+
+  /* === Typing Animation === */
+  new TypeIt("#typing", {
+    strings: ["Web Developer", "Laravel Developer", "Cloud Enthusiast","Digital Marketer" ,"Freelancer"],
+    speed: 100,
+    breakLines: false,
+    loop: true,
+    waitUntilVisible: true,
+  }).go();
 });
