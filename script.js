@@ -1,32 +1,37 @@
-// Toggle Extra Projects
-const toggleButton = document.getElementById('toggleProjects');
-const extraProjects = document.querySelectorAll('.project-card.extra');
-let expanded = false;
+// script.js
 
-toggleButton.addEventListener('click', () => {
-  expanded = !expanded;
-  extraProjects.forEach(card => {
-    card.style.display = expanded ? 'block' : 'none';
+// Typing effect
+new TypeIt("#typing", {
+  strings: ["Web Developer", "Cloud Enthusiast", "Freelancer"],
+  speed: 100,
+  breakLines: false,
+  loop: true
+}).go();
+
+// Load JSON data
+fetch('data.json')
+  .then(res => res.json())
+  .then(data => {
+    populateSection('projects-container', data.projects);
+    populateSection('education-container', data.education);
+    populateSection('experience-container', data.experience);
+  })
+  .catch(err => console.error('Error loading data:', err));
+
+function populateSection(containerId, items) {
+  const container = document.getElementById(containerId);
+  items.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>${item.description}</p>
+    `;
+    container.appendChild(card);
   });
-  toggleButton.textContent = expanded ? 'Show Less' : 'Show More';
-});
+}
 
-
-const form = document.getElementById('contactForm');
-const status = document.getElementById('formStatus');
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (!name || !email || !message) {
-    status.textContent = '❌ Please fill all fields.';
-    status.style.color = 'red';
-  } else {
-    status.textContent = '✅ Message sent!';
-    status.style.color = 'green';
-    form.reset();
-  }
+// Particles.js background
+particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json', function() {
+  console.log('Particles.js loaded');
 });
