@@ -1,0 +1,30 @@
+/* Unique glow effect for project images */
+.project-glow-img {
+  transition: 0.3s ease-in-out;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  height: 220px; /* Adjust height as needed */
+}
+
+/* .popup-image:hover .project-glow-img {
+  border-color: #2ebe59; 
+  box-shadow: 0 0 15px rgba(207, 212, 221, 0.5);
+} */
+
+
+.timeline {
+  border-left: 2px dashed #101964;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+}
